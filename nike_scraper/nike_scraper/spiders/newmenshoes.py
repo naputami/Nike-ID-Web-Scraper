@@ -8,7 +8,7 @@ class NewMenShoesSpider(scrapy.Spider):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.counter = 1  # 2. Define a self.counter property
+        self.counter = 0  # 2. Define a self.counter property
 
 
     def start_requests(self):
@@ -25,7 +25,7 @@ class NewMenShoesSpider(scrapy.Spider):
         products = res["data"]["products"]["products"]
 
         if not products:
-            raise CloseSpider(f'Close spider')
+            raise CloseSpider(f'There is no product to be displayed')
 
         for product in products:
             yield {

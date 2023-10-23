@@ -6,7 +6,7 @@ class SearchItemSpider(scrapy.Spider):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.counter = 1  # 2. Define a self.counter property
+        self.counter = 0  # 2. Define a self.counter property
 
 
     def start_requests(self):
