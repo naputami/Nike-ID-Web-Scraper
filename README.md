@@ -18,4 +18,4 @@ pip install -r requirements.txt
 ```
 
 ## Related Links
-My Medium artiocle related to this repository: https://medium.com/@naputami/scraping-data-from-api-response-using-scrapy-python-43f86c3328b7
+My Medium article related to this repository: https://medium.com/@naputami/scraping-data-from-api-response-using-scrapy-python-43f86c3328b7
