@@ -20,7 +20,7 @@ NEWSPIDER_MODULE = "nike_scraper.spiders"
 ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 50
+CONCURRENT_REQUESTS = 70
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -62,9 +62,9 @@ CONCURRENT_REQUESTS = 50
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "nike_scraper.pipelines.NikeScraperPipeline": 300,
-#}
+ITEM_PIPELINES = {
+   "nike_scraper.pipelines.AddToXlsxPipeline": 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

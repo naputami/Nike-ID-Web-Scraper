@@ -1,6 +1,7 @@
 import scrapy
 from scrapy.exceptions import CloseSpider
-
+from nike_scraper.items import NikeScraperItem
+from nike_scraper.itemloader import NikeItemLoader
 
 class NewMenShoesSpider(scrapy.Spider):
     name = 'newmenshoes'
@@ -26,14 +27,15 @@ class NewMenShoesSpider(scrapy.Spider):
 
         if not products:
             raise CloseSpider(f'There is no product to be displayed')
+        
 
         for product in products:
-            yield {
-                "title": product["title"],
-                "subtitle": product["subtitle"],
-                "product_url": f"https://www.nike.com/id/{product['url'][14:]}",
-                "image_url": product["images"]["portraitURL"],
-                "current_price": product["price"]["currentPrice"],
-                "full_price": product["price"]["fullPrice"],
-                "discounted" : product["price"]["discounted"]
-            }
+            item = NikeItemLoader(item=NikeScraperItem(), selector=product)
+            item.add_value('title', product["title"])
+            item.add_value('subtitle', product["subtitle"])
+            item.add_value('product_url', product["url"][14:])
+            item.add_value('img_url', product["images"]["portraitURL"])
+            item.add_value('current_price', product["price"]["currentPrice"])
+            item.add_value('full_price',product["price"]["fullPrice"])
+            item.add_value('discounted', product["price"]["discounted"])
+            yield item.load_item()

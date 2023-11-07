@@ -7,6 +7,10 @@ import scrapy
 
 
 class NikeScraperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    title = scrapy.Field()
+    subtitle = scrapy.Field()
+    product_url = scrapy.Field()
+    img_url = scrapy.Field()
+    current_price = scrapy.Field()
+    full_price = scrapy.Field()
+    discounted = scrapy.Field()
