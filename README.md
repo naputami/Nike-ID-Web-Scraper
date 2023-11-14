@@ -22,4 +22,4 @@ git checkout nike_scraperV2
 ```
 
 ## Related Links
-My Medium article related to this repository: https://medium.com/@naputami/scraping-data-from-api-response-using-scrapy-python-43f86c3328b7
+My Medium article related to this repository: https://medium.com/@naputami/storing-web-scraping-data-to-xlsx-file-with-scrapy-and-openpyxl-1e71a87a6f33
