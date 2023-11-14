@@ -18,9 +18,9 @@ class AddToXlsxPipeline:
     def process_item(self, item, spider):
 
         values = list(item.values())
-        header = list(item.keys())
-
+      
         if self.current_row_index == 0:
+            header = list(item.keys())
             self.worksheet.append(header)
             self.worksheet.append(values)
         else:
@@ -36,5 +36,5 @@ class AddToXlsxPipeline:
         self.worksheet = self.workbook.active
     
     def close_spider(self, spider):
-        excel_file = '20231107_airmax.xlsx'
+        excel_file = '20231114_airmax.xlsx'
         self.workbook.save(excel_file)
